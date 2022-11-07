@@ -50,6 +50,9 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
+            <div>
+              strikerabirhasan@gmail.com
+            </div>
           </div>
         </footer>
       </div>
