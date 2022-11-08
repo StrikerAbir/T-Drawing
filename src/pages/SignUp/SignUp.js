@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/images/section.webp";
 import { AuthContext } from "../../context/AuthProvider";
 import toast from "react-hot-toast";
 import GoogleLogin from "../../shared/GoogleLogin/GoogleLogin";
-import { FaUser } from "react-icons/fa";
 
 const SignUp = () => {
-  const { user, createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -20,11 +22,21 @@ const SignUp = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+        handleUpdateProfile(name, imageUrl);
         form.reset();
+        navigate(from, { replace: true });
+        window.location.reload();
         toast.success("Sign in successful.");
         console.log(user);
       })
       .catch((err) => console.error(err));
+  };
+
+  const handleUpdateProfile = (name, imageUrl) => {
+    const profile = { displayName: name, photoURL: imageUrl };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => console.error("error", error));
   };
   return (
     <div className="hero w-full my-20">

@@ -101,7 +101,7 @@ const Header = () => {
           {user?.uid ? (
             <div className="flex items-center">
               <div className="avatar">
-                <div className="w-8 rounded">
+                <div className="w-10 rounded">
                   <img src={user?.photoURL} alt="" />
                 </div>
               </div>
