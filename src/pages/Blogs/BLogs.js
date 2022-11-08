@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../utilities/Hook/useTitle";
 
 const BLogs = () => {
-  const { user } = useContext(AuthContext);
+  useTitle("Blogs");
   return (
     <div className="mt-16 mb-10">
       <div className="text-center">

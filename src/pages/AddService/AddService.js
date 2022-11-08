@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import img2 from "../../assets/images/section3.jpg";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../utilities/Hook/useTitle";
 import './AddService.css'
 
 const AddService = () => {
+  useTitle("AddService");
   const { user } = useContext(AuthContext);
   const [serviceId, setServiceId] = useState();
   useEffect(() => {

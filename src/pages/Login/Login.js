@@ -4,8 +4,10 @@ import img from "../../assets/images/section.webp";
 import { AuthContext } from "../../context/AuthProvider";
 import GoogleLogin from "../../shared/GoogleLogin/GoogleLogin";
 import { setAuthToken } from "../../utilities/authToken";
+import useTitle from "../../utilities/Hook/useTitle";
 
 const Login = () => {
+    useTitle('Login')
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();

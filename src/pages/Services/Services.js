@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../utilities/Hook/useTitle';
 import ServiceCard from './ServiceCard/ServiceCard';
 
 const Services = () => {
     const services = useLoaderData();
+    useTitle("Services");
     return (
       <div>
         <div className="mt-16 mb-10">
