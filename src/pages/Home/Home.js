@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Services from '../Services/Services';
+import AboutUs from './AboutUs/AboutUs';
 import Banner from './Banner/Banner';
 import Stats from './Stats/Stats';
 
@@ -17,6 +18,7 @@ const Home = () => {
           </Link>
             </div>
             <Stats></Stats>
+            <AboutUs></AboutUs>
       </div>
     );
 };
