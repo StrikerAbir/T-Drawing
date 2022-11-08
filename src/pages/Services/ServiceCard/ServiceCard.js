@@ -30,7 +30,7 @@ const ServiceCard = ({ service }) => {
             Price: <span className="text-green-500">${price}</span>
           </p>
           <Link
-            to={`/checkout/${_id}`}
+            to={`/serviceDetails/${_id}`}
             className="btn bg-green-500 hover:bg-green-600 border-none"
           >
             Details

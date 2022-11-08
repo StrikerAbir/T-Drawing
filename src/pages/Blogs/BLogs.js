@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import useTitle from "../../utilities/Hook/useTitle";
 
 const BLogs = () => {

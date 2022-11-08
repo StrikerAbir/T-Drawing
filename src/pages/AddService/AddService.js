@@ -28,7 +28,7 @@ const AddService = () => {
     const price = `${form.price.value}.00`;
     const description = form.description.value;
 
-    console.log(service_id, title, rating, img, price, description);
+    // console.log(service_id, title, rating, img, price, description);
     const service = {
       service_id,
       title,
@@ -38,7 +38,7 @@ const AddService = () => {
       description,
     };
 
-    fetch("http://localhost:1000/services", {
+    fetch("https://t-drawing-server.vercel.app/services/", {
       method: "POST",
       headers: {
         "content-type": "application/json",

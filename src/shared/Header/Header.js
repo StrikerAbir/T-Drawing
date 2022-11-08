@@ -19,21 +19,21 @@ const Header = () => {
       <li className="font-semibold ">
         <NavLink
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className="hover:bg-green-400"
+          className="hover:bg-green-400 lg:mr-2"
           to="/"
         >
           Home
         </NavLink>
         <NavLink
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className="hover:bg-green-400 "
+          className="hover:bg-green-400 lg:mr-2"
           to="/blogs"
         >
           Blogs
         </NavLink>
         <NavLink
           style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          className="hover:bg-green-400 "
+          className="hover:bg-green-400"
           to="/services"
         >
           Services
@@ -42,14 +42,14 @@ const Header = () => {
           <>
             <NavLink
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              className="hover:bg-green-400 "
+              className="hover:bg-green-400 lg:mx-2"
               to="/myReviews"
             >
               My Reviews
             </NavLink>
             <NavLink
               style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              className="hover:bg-green-400 "
+              className="hover:bg-green-400"
               to="/addService"
             >
               Add Service
