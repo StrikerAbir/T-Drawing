@@ -50,7 +50,7 @@ const Header = () => {
   );
   return (
     <div>
-      <div className="navbar h-20 pt-12 mb-12 bg-base-100">
+      <div className="navbar h-20 pt-14 pb-14 bg-base-100 border-b-2">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -89,7 +89,7 @@ const Header = () => {
         <div className="navbar-end">
           {user?.uid ? (
             <Link to="/login">
-              <button className="btn btn-outline text-green-500 hover:bg-green-400 hover:border-none">
+              <button className="btn btn-outline text-green-500 hover:bg-green-500 hover:border-none">
                 Logout
               </button>
             </Link>
