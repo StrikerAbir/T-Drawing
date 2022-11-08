@@ -1,8 +1,8 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import { Link } from "react-router-dom";
 import "react-photo-view/dist/react-photo-view.css";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
   const { _id, img, price, title, rating, description } = service;

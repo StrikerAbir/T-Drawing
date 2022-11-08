@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import { setAuthToken } from '../../utilities/authToken';
 
 const GoogleLogin = () => {
         const { googleProviderLogin } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const GoogleLogin = () => {
           googleProviderLogin()
             .then((result) => {
               const user = result.user;
-            //   setAuthToken(user);
+              setAuthToken(user);
               navigate(from, { replace: true });
             })
             .catch((err) => console.error(err));

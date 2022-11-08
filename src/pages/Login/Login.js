@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/images/section.webp";
 import { AuthContext } from "../../context/AuthProvider";
 import GoogleLogin from "../../shared/GoogleLogin/GoogleLogin";
+import { setAuthToken } from "../../utilities/authToken";
 
 const Login = () => {
   const { user, login } = useContext(AuthContext);
@@ -18,7 +19,8 @@ const Login = () => {
 
     login(email, password)
       .then((result) => {
-        const user = result.user;
+          const user = result.user;
+          setAuthToken(user);
         form.reset();
         navigate(from, { replace: true });
       })
