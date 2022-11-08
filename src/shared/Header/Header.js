@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { FaUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/t-drawing-logo.png";
 import { AuthContext } from "../../context/AuthProvider";
@@ -87,7 +88,7 @@ const Header = () => {
             </ul>
           </div>
           <Link to="/">
-            <div className='flex flex-col items-center'>
+            <div className="flex flex-col items-center">
               <img className="w-1/2" src={logo} alt="" />
               <h2 className="font-bold">T-Drawing</h2>
             </div>
@@ -98,17 +99,30 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           {user?.uid ? (
-            <Link to="/login">
-              <button onClick={handleLogOut} className="btn btn-outline text-green-500 hover:bg-green-500 hover:border-none">
-                Logout
-              </button>
-            </Link>
+            <div className="flex items-center">
+              <div className="avatar">
+                <div className="w-8 rounded">
+                  <img src={user?.photoURL} alt="" />
+                </div>
+              </div>
+              <Link to="/login">
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-outline text-green-500 hover:bg-green-500 hover:border-none ml-3"
+                >
+                  Logout
+                </button>
+              </Link>
+            </div>
           ) : (
-            <Link to="/login">
-              <button className="btn btn-outline text-green-500 hover:bg-green-400 hover:border-none">
-                Login
-              </button>
-            </Link>
+            <div className='flex items-center'>
+              <FaUser></FaUser>
+              <Link to="/login">
+                <button className="btn btn-outline text-green-500 hover:bg-green-400 hover:border-none ml-3">
+                  Login
+                </button>
+              </Link>
+            </div>
           )}
         </div>
       </div>

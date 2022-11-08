@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import img from "../../assets/images/section.webp";
 import { AuthContext } from "../../context/AuthProvider";
 import toast from "react-hot-toast";
+import GoogleLogin from "../../shared/GoogleLogin/GoogleLogin";
+import { FaUser } from "react-icons/fa";
 
 const SignUp = () => {
   const { user, createUser } = useContext(AuthContext);
@@ -10,6 +12,8 @@ const SignUp = () => {
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
+    const imageUrl = form.imageUrl.value;
     const email = form.email.value;
     const password = form.password.value;
 
@@ -46,6 +50,18 @@ const SignUp = () => {
             </div>
             <div className="form-control">
               <label className="label">
+                <span className="label-text">Image Url</span>
+              </label>
+              <input
+                type="text"
+                placeholder="image url"
+                className="input input-bordered"
+                name="imageUrl"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
@@ -76,7 +92,9 @@ const SignUp = () => {
               />
             </div>
           </form>
-          <div className="mb-5">{/* <SocialLogin></SocialLogin> */}</div>
+          <div className="mb-5">
+            <GoogleLogin></GoogleLogin>
+          </div>
           <p className="text-center">
             Already have an account?
             <Link className="text-green-500 font-bold ml-2" to="/login">

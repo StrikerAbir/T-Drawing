@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/images/section.webp";
 import { AuthContext } from "../../context/AuthProvider";
+import GoogleLogin from "../../shared/GoogleLogin/GoogleLogin";
 
 const Login = () => {
   const { user, login } = useContext(AuthContext);
@@ -71,7 +72,7 @@ const Login = () => {
               />
             </div>
           </form>
-          <div className="mb-5">{/* <SocialLogin></SocialLogin> */}</div>
+          <div className="mb-5"><GoogleLogin></GoogleLogin></div>
           <p className="text-center">
             New Here?
             <Link className="text-green-500 font-bold ml-2" to="/signUp">
