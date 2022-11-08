@@ -4,8 +4,11 @@ import logo from "../../assets/images/t-drawing-logo.png";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
-
+  const { user, logOut } = useContext(AuthContext);
+  // console.log(user);
+  const handleLogOut = () => {
+    logOut();
+  };
   let activeStyle = {
     backgroundColor: "#4ADE80",
     color: "black",
@@ -96,7 +99,7 @@ const Header = () => {
         <div className="navbar-end">
           {user?.uid ? (
             <Link to="/login">
-              <button className="btn btn-outline text-green-500 hover:bg-green-500 hover:border-none">
+              <button onClick={handleLogOut} className="btn btn-outline text-green-500 hover:bg-green-500 hover:border-none">
                 Logout
               </button>
             </Link>
