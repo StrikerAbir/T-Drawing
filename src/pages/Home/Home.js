@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Services from '../Services/Services';
 import Banner from './Banner/Banner';
+import Stats from './Stats/Stats';
 
 const Home = () => {
     return (
@@ -14,7 +15,8 @@ const Home = () => {
               see more
             </button>
           </Link>
-        </div>
+            </div>
+            <Stats></Stats>
       </div>
     );
 };
