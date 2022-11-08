@@ -6,7 +6,7 @@ import GoogleLogin from "../../shared/GoogleLogin/GoogleLogin";
 import { setAuthToken } from "../../utilities/authToken";
 
 const Login = () => {
-  const { user, login } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";

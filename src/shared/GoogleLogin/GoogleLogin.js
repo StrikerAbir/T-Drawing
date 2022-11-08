@@ -13,6 +13,7 @@ const GoogleLogin = () => {
           googleProviderLogin()
             .then((result) => {
               const user = result.user;
+              console.log(user);
               setAuthToken(user);
               navigate(from, { replace: true });
             })

@@ -27,7 +27,7 @@ const Banner = () => {
     return (
       <div>
         <div
-          className="carousel w-full py-10 slide relative"
+          className="carousel w-full slide relative"
           data-bs-ride="carousel"
         >
           {bannerData.map((slide) => (

@@ -23,7 +23,7 @@ const ServiceCard = ({ service }) => {
           </div>
         </div>
         <div className="mb-2">
-          <p>{description.length > 100 && description.slice(0, 100)}...</p>
+          <p>{description.length > 100 ? description.slice(0, 100) : description}...</p>
         </div>
         <div className="card-actions items-center">
           <p className=" font-semibold text-xl">
