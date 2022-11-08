@@ -19,6 +19,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("https://t-drawing-server.vercel.app/services?count=3"),
       },
       {
         path: "/blogs",
@@ -27,6 +28,7 @@ export const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
+        loader: () => fetch("https://t-drawing-server.vercel.app/services"),
       },
       {
         path: "/myReviews",

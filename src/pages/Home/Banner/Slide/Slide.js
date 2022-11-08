@@ -7,7 +7,7 @@ const Slide = ({ slide }) => {
   return (
     <div id={`slide${id}`} className="carousel-item relative w-full">
       <div className="carousel-img">
-        <img src={img} alt="" className="w-full rounded-xl" />
+        <img src={img} alt="" className="w-full"/>
       </div>
       <div className="absolute flex flex-col items-center transform -translate-y-1/2 top-1/3 w-full">
         <h1 className="lg:text-6xl md:text-4xl font-bold text-white">
