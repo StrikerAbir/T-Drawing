@@ -74,7 +74,7 @@ const Login = () => {
           <div className="mb-5">{/* <SocialLogin></SocialLogin> */}</div>
           <p className="text-center">
             New Here?
-            <Link className="text-green-500 font-bold" to="/signUp">
+            <Link className="text-green-500 font-bold ml-2" to="/signUp">
               Sign Up
             </Link>
           </p>
