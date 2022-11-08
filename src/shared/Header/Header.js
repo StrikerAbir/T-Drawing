@@ -27,6 +27,13 @@ const Header = () => {
         >
           Blogs
         </NavLink>
+        <NavLink
+          style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          className="hover:bg-green-400 "
+          to="/services"
+        >
+          Services
+        </NavLink>
         {user?.uid && (
           <>
             <NavLink
