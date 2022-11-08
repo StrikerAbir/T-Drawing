@@ -77,8 +77,10 @@ const Header = () => {
             </ul>
           </div>
           <Link to="/">
-            <img className="w-1/2" src={logo} alt="" />
-            <h2 className="font-bold">T-Drawing</h2>
+            <div className='flex flex-col items-center'>
+              <img className="w-1/2" src={logo} alt="" />
+              <h2 className="font-bold">T-Drawing</h2>
+            </div>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
