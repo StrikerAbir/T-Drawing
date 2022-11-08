@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Slide = ({ slide }) => {
   const { img, id, next, prev } = slide;
@@ -25,9 +26,9 @@ const Slide = ({ slide }) => {
         </div>
       </div>
       <div className="absolute flex justify-center transform -translate-y-1/2 top-2/3 w-full">
-        <button className="btn btn-outline hover:bg-green-500 text-white">
+        <Link to='/services' className="btn btn-outline hover:bg-green-500 text-white">
           Art gallery
-        </button>
+        </Link>
       </div>
 
       <div className="absolute left-10 top-1/2">
