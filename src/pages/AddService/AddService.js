@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import img2 from "../../assets/images/section3.jpg";
 import { AuthContext } from "../../context/AuthProvider";
+import './AddService.css'
+
 const AddService = () => {
   const { user } = useContext(AuthContext);
   const [serviceId, setServiceId] = useState();
@@ -61,11 +63,13 @@ const AddService = () => {
           <img src={img2} alt="" className="w-full rounded-b-xl" />
         </div>
         <div className="absolute left-24 top-1/4">
-          <h1 className="text-6xl font-bold text-white">Add Services</h1>
-          <h2 className="text-4xl font-bold  text-orange-300 my-5">
+          <h1 className="lg:text-6xl md:text-4xl text-3xl font-bold text-white">
+            Add Services
+          </h1>
+          <h2 className="lg:text-4xl md:text-2xl text-xl font-bold  text-green-400 ">
             {user?.displayName}
           </h2>
-          <h4 className="text-xl font-semibold text-white">{user?.email}</h4>
+          <h4 className="lg:text-xl font-semibold text-white">{user?.email}</h4>
         </div>
       </div>
 
