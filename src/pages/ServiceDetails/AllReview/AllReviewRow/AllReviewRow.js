@@ -11,11 +11,12 @@ const AllReviewRow = ({ review }) => {
     serviceId,
     serviceTitle,
     time,
-  } = review;
+    } = review;
+    // time converting milisec to time
   const commentTime = new Date(time);
   const current = new Date();
   current.setTime(commentTime.getTime());
-  console.log(current);
+  
   return (
     <div className="flex justify-start mx-5 mb-5 pb-3 border-b-2">
       <div className='mr-5'>
