@@ -5,7 +5,7 @@ const AllReview = ({ serviceId }) => {
   const [reviews, setReviews] = useState([]);
   // console.log(reviews);
   useEffect(() => {
-    fetch(`https://t-drawing-server.vercel.app/reviews?sid=${serviceId}`)
+    fetch(`https://t-drawing-server.vercel.app/reviews/all?sid=${serviceId}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

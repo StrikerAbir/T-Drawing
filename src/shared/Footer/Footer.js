@@ -1,12 +1,13 @@
 import React from 'react';
+import { FaRegCopyright } from 'react-icons/fa';
 import logo from '../../assets/images/t-drawing-logo.png'
 const Footer = () => {
     return (
-      <div>
-        <footer className="footer p-10 bg-black text-neutral-content">
+      <div className=" px-20 py-20 bg-black">
+        <footer className="footer text-neutral-content">
           <div>
             <img width="50" height="50" src={logo} alt="" />
-            
+
             <p>
               T-Drawing
               <br />
@@ -50,11 +51,13 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            <div>
-              strikerabirhasan@gmail.com
-            </div>
+            <div>strikerabirhasan@gmail.com</div>
           </div>
         </footer>
+        <div className='flex items-center text-white'>
+          <FaRegCopyright></FaRegCopyright>
+          <p className='ml-2'>All rights reserved..</p>
+        </div>
       </div>
     );
 };
