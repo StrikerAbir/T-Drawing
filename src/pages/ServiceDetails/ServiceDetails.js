@@ -45,8 +45,8 @@ const ServiceDetails = () => {
         </div>
       </section>
       <section>
-        <ReviewSection key={service_id} service={service}></ReviewSection>
-        <AllReview key={_id}></AllReview>
+        <ReviewSection key={_id} service={service}></ReviewSection>
+        <AllReview key={service_id} serviceId={service_id}></AllReview>
       </section>
     </div>
   );

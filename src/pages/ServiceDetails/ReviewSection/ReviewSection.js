@@ -20,7 +20,7 @@ const ReviewSection = ({ service }) => {
         const serviceId = service_id;
         const serviceTitle = title;
         const time = timeMili;
-          console.log(rating, comment, userEmail, userName, userImg, serviceId, serviceTitle, time);
+        //   console.log(rating, comment, userEmail, userName, userImg, serviceId, serviceTitle, time);
           const review = {
             rating,
             comment,
