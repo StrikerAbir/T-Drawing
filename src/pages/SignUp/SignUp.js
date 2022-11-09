@@ -27,7 +27,6 @@ const SignUp = () => {
         handleUpdateProfile(name, imageUrl);
         form.reset();
         navigate(from, { replace: true });
-        window.location.reload();
         toast.success("Sign in successful.");
         console.log(user);
       })

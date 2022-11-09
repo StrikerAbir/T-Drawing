@@ -5,11 +5,26 @@ import { AuthContext } from "../../context/AuthProvider";
 
 const MyReviews = ({service_id}) => {
   useTitle("MyReviews");
-    const { user } = useContext(AuthContext);
-    const [service, setService] = useState(null);
+    const { user,logOut } = useContext(AuthContext);
+    const [reviews, setReviews] = useState([]);
+    // console.log(`http://localhost:1000/reviews?email=${user.email}`);
     useEffect(() => {
-        fetch(``)
-    },[])
+      fetch(
+        `http://localhost:1000/reviews?email=${user.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+        .then((res) => {
+          if (res.status === 401 || res.status === 403) {
+            return logOut();
+          }
+          return res.json();
+        })
+        .then((data) => setReviews(data));
+    }, [user?.email, logOut]);
   return (
     <div>
       <div className="relative">
@@ -27,7 +42,7 @@ const MyReviews = ({service_id}) => {
         </div>
           </div>
           <div className='my-10'>
-              
+              {reviews.length}
           </div>
     </div>
   );

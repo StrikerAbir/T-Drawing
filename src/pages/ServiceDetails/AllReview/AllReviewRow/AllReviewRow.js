@@ -49,28 +49,7 @@ const AllReviewRow = ({ review }) => {
           </div>
         </div>
       </div>
-      {/* <div>
-          <div className="avatar">
-            <div className="w-8 rounded">
-              <img src={userImg} alt="" />
-            </div>
-          </div>
-        <div className="flex">
-          <div className="flex">
-            <h2 className="text-xl font-bold ml-4">{userName}</h2>
-            <p>{`${current}`}</p>
-          </div>
-          </div>
-          <p>{comment}</p>
-          <p>{userEmail}</p>
-          <div>
-            <div className="flex items-center">
-              <p className="mr-1 font-semibold">Rating: {rating}</p>
-              <FaStar className="text-yellow-500"></FaStar>
-            </div>
-            <p>{serviceTitle}</p>
-        </div>
-      </div> */}
+      
     </div>
   );
 };

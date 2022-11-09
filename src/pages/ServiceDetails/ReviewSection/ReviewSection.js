@@ -43,9 +43,11 @@ const ReviewSection = ({ service }) => {
             .then((response) => response.json())
             .then((data) => {
               console.log(data);
-              if (data.acknowledged) {
+                if (data.acknowledged) {
+                  
                 form.reset();
-                toast.success("Feedback done!");
+                    toast.success("Feedback done!");
+                    // window.location.reload();
               } else {
                 toast.error("Failed to give feedback!");
               }
