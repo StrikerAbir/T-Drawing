@@ -44,6 +44,28 @@ const MyReviews = ({service_id}) => {
           });
       }
     };
+
+    const handleUpdate = (object) => {
+        const { _id } = object;
+        console.log(object);
+        console.log(`http://localhost:1000/reviews/${_id}`);
+        fetch(`http://localhost:1000/reviews/${_id}`, {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(object),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+                toast.success("Feedback Updated Successfully");
+                window.location.reload();
+            }
+          });
+    }
   return (
     <div>
       <div className="relative">
@@ -62,7 +84,7 @@ const MyReviews = ({service_id}) => {
           </div>
           <div className='my-10'>
               {
-                  reviews.map(review=><MyReviewsRow key={review._id} review={review} handleDelete={handleDelete}></MyReviewsRow>)
+                  reviews.map(review=><MyReviewsRow key={review._id} review={review} handleDelete={handleDelete} handleUpdate={handleUpdate}></MyReviewsRow>)
               }
           </div>
     </div>

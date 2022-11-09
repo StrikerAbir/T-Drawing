@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { FaStar } from "react-icons/fa";
 import { AuthContext } from "../../../context/AuthProvider";
 
-const MyReviewsRow = ({ review,handleDelete }) => {
-    const {user}= useContext(AuthContext);
+const MyReviewsRow = ({ review, handleDelete,handleUpdate }) => {
+  const { user } = useContext(AuthContext);
   const {
     rating,
     comment,
@@ -12,17 +12,29 @@ const MyReviewsRow = ({ review,handleDelete }) => {
     userImg,
     serviceId,
     serviceTitle,
-      time,
-    _id
+    time,
+    _id,
   } = review;
   // time converting milisec to time
   const commentTime = new Date(time);
   const current = new Date();
   current.setTime(commentTime.getTime());
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const rating = form.rating.value;
+    const comment = form.comment.value;
+    // current time in milisec
+    const now = new Date();
+      const timeMili = now.getTime();
+      const time = timeMili;
+      const id = _id;
+      const object = {
+          rating,comment,time,_id
+      }
+      handleUpdate(object)
+  };
   return (
     <div className="flex justify-start mx-5 mb-5 pb-3 border-b-2">
       <div className="mr-5">
@@ -84,7 +96,7 @@ const MyReviewsRow = ({ review,handleDelete }) => {
                       type="text"
                       placeholder="Rating (0-5)"
                       className="input input-bordered w-full "
-                      required
+                      defaultValue={rating}
                     />
                   </div>
                   <div className="my-5">
@@ -92,6 +104,7 @@ const MyReviewsRow = ({ review,handleDelete }) => {
                       name="comment"
                       className="textarea textarea-bordered w-full h-24"
                       placeholder="Comment..."
+                      defaultValue={comment}
                     ></textarea>
                     <div className="pt-5">
                       <input

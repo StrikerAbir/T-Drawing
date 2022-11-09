@@ -9,6 +9,7 @@ const ReviewSection = ({ service }) => {
     const handleSubmit = (event) => {
       event.preventDefault();
       const form = event.target;
+      // current time in milisec
       const now = new Date();
       const timeMili = now.getTime();
       if (user) {
