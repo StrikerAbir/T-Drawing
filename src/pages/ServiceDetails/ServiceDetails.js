@@ -3,6 +3,7 @@ import { FaStar } from 'react-icons/fa';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { useLoaderData } from 'react-router-dom';
 import useTitle from '../../utilities/Hook/useTitle';
+import ReviewSection from './ReviewSection/ReviewSection';
 
 const ServiceDetails = () => {
     const service = useLoaderData()
@@ -42,7 +43,9 @@ const ServiceDetails = () => {
             </div>
           </div>
         </section>
-        <section></section>
+            <section>
+                <ReviewSection></ReviewSection>
+        </section>
       </div>
     );
 };

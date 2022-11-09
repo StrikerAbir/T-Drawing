@@ -100,9 +100,12 @@ const Header = () => {
         <div className="navbar-end">
           {user?.uid ? (
             <div className="flex items-center">
-              <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+              <div
+                className="tooltip tooltip-bottom pt-1"
+                data-tip={user?.displayName}
+              >
                 <div className="avatar">
-                  <div className="md:w-10 w-8 rounded">
+                  <div className="w-8 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
                     <img src={user?.photoURL} alt="" />
                   </div>
                 </div>
