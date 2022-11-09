@@ -93,7 +93,6 @@ const MyReviews = ({ service_id }) => {
         ) : (
           <div>
             <progress className="progress w-full"></progress>
-
             <div className="text-center my-10 text-4xl font-bold border-2 p-5">
               <h2>NO Reviews or Feedback</h2>
             </div>
