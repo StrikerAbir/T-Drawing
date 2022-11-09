@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useTitle from "../../utilities/Hook/useTitle";
 import img2 from "../../assets/images/section3.jpg";
 import { AuthContext } from "../../context/AuthProvider";
 
-const MyReviews = () => {
+const MyReviews = ({service_id}) => {
   useTitle("MyReviews");
-  const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+    const [service, setService] = useState(null);
+    useEffect(() => {
+        fetch(``)
+    },[])
   return (
     <div>
       <div className="relative">

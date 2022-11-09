@@ -8,7 +8,7 @@ import ReviewSection from "./ReviewSection/ReviewSection";
 
 const ServiceDetails = () => {
   const service = useLoaderData();
-  const { service_id, title, rating, img, price, description } = service;
+  const { _id,service_id, title, rating, img, price, description } = service;
   useTitle(title);
   return (
     <div className="mt-16 mb-10">
@@ -45,8 +45,8 @@ const ServiceDetails = () => {
         </div>
       </section>
       <section>
-        <ReviewSection></ReviewSection>
-        <AllReview></AllReview>
+        <ReviewSection key={service_id} service={service}></ReviewSection>
+        <AllReview key={_id}></AllReview>
       </section>
     </div>
   );
