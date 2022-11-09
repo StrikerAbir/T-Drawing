@@ -100,9 +100,11 @@ const Header = () => {
         <div className="navbar-end">
           {user?.uid ? (
             <div className="flex items-center">
-              <div className="avatar">
-                <div className="md:w-10 w-8 rounded">
-                  <img src={user?.photoURL} alt="" />
+              <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                <div className="avatar">
+                  <div className="md:w-10 w-8 rounded">
+                    <img src={user?.photoURL} alt="" />
+                  </div>
                 </div>
               </div>
               <Link to="/login">
@@ -115,7 +117,7 @@ const Header = () => {
               </Link>
             </div>
           ) : (
-            <div className='flex items-center'>
+            <div className="flex items-center">
               <FaUser></FaUser>
               <Link to="/login">
                 <button className="btn btn-outline text-green-500 hover:bg-green-400 hover:border-none ml-3">
