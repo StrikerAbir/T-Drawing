@@ -37,7 +37,6 @@ const ReviewSection = ({ service }) => {
             method: "POST",
             headers: {
               "content-type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("token")}`,
             },
             body: JSON.stringify(review),
           })
@@ -46,9 +45,9 @@ const ReviewSection = ({ service }) => {
               console.log(data);
                 if (data.acknowledged) {
                   
-                form.reset();
-                    toast.success("Feedback done!");
-                    // window.location.reload();
+                  toast.success("Feedback done!");
+                  form.reset();
+                  window.location.reload();
               } else {
                 toast.error("Failed to give feedback!");
               }

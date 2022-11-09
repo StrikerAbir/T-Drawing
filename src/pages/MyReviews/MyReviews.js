@@ -32,9 +32,6 @@ const MyReviews = ({ service_id }) => {
     if (proceed) {
       fetch(`https://t-drawing-server.vercel.app/reviews/${id}`, {
         method: "DELETE",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
       })
         .then((res) => res.json())
         .then((data) => {
@@ -55,7 +52,6 @@ const MyReviews = ({ service_id }) => {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify(object),
     })
@@ -94,10 +90,11 @@ const MyReviews = ({ service_id }) => {
               handleUpdate={handleUpdate}
             ></MyReviewsRow>
           ))
-        ) : (
-          <div className="text-center my-10 text-4xl font-bold border-2 p-5">
-            <h2>NO Reviews or Feedback</h2>
-          </div>
+              ) : (
+                      <progress className="progress w-full"></progress>
+        //   <div className="text-center my-10 text-4xl font-bold border-2 p-5">
+        //     <h2>NO Reviews or Feedback</h2>
+        //   </div>
         )}
       </div>
     </div>
