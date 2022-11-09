@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/images/section.webp";
 import { AuthContext } from "../../context/AuthProvider";
@@ -24,9 +25,13 @@ const Login = () => {
           const user = result.user;
           setAuthToken(user);
         form.reset();
+        toast.success('Welcome to T-Drawing.')
         navigate(from, { replace: true });
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err)
+        toast.error(err.message)
+      });
   };
 
   return (
