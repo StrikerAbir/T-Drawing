@@ -62,7 +62,7 @@ const AddService = () => {
     <div>
       <div className="relative">
         <div className="carousel-img">
-          <img src={img2} alt="" className="w-full rounded-b-xl" />
+          <img src={img2} alt="" className="w-full lg:h-[300px] rounded-b-xl" />
         </div>
         <div className="absolute left-24 top-1/4">
           <h1 className="lg:text-6xl md:text-4xl text-3xl font-bold text-white">
