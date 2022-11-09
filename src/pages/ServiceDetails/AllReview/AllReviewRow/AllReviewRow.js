@@ -8,7 +8,6 @@ const AllReviewRow = ({ review }) => {
     userEmail,
     userName,
     userImg,
-    serviceId,
     serviceTitle,
     time,
     } = review;

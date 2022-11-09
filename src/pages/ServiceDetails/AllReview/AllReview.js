@@ -8,7 +8,7 @@ const AllReview = ({ serviceId }) => {
     fetch(`https://t-drawing-server.vercel.app/reviews/all?sid=${serviceId}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
-  }, []);
+  }, [serviceId]);
   return (
     <div>
       <div className="mb-10 mx-5">

@@ -10,7 +10,6 @@ const MyReviewsRow = ({ review, handleDelete,handleUpdate }) => {
     userEmail,
     userName,
     userImg,
-    serviceId,
     serviceTitle,
     time,
     _id,
@@ -29,7 +28,6 @@ const MyReviewsRow = ({ review, handleDelete,handleUpdate }) => {
     const now = new Date();
       const timeMili = now.getTime();
       const time = timeMili;
-      const id = _id;
       const object = {
           rating,comment,time,_id
       }
