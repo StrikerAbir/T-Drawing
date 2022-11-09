@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaStar } from "react-icons/fa";
+import { AuthContext } from "../../../context/AuthProvider";
 
-const MyReviewsRow = ({ review }) => {
+const MyReviewsRow = ({ review,handleDelete }) => {
+    const {user}= useContext(AuthContext);
   const {
     rating,
     comment,
@@ -10,13 +12,17 @@ const MyReviewsRow = ({ review }) => {
     userImg,
     serviceId,
     serviceTitle,
-    time,
+      time,
+    _id
   } = review;
   // time converting milisec to time
   const commentTime = new Date(time);
   const current = new Date();
   current.setTime(commentTime.getTime());
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
   return (
     <div className="flex justify-start mx-5 mb-5 pb-3 border-b-2">
       <div className="mr-5">
@@ -46,10 +52,70 @@ const MyReviewsRow = ({ review }) => {
               </div>
             </div>
             <p className="font-bold">
-              Feedback: <span className="text-green-500 font-normal">{comment}</span>
+              Feedback: "
+              <span className="text-green-500 font-normal">{comment}</span>"
             </p>
+
+            {/* modal body */}
+            <input type="checkbox" id="my-modal" className="modal-toggle" />
+            <div className="modal">
+              <div className="modal-box">
+                <h3 className="font-bold text-lg">Update your feedback.</h3>
+                <form onSubmit={handleSubmit} className="mt-10 w-11/12">
+                  {user?.uid ? (
+                    <div className="flex items-center m-4">
+                      <div className="avatar">
+                        <div className="w-8 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
+                          <img src={user?.photoURL} alt="" />
+                        </div>
+                      </div>
+                      <h2 className="text-2xl font-bold ml-4">
+                        {user?.displayName}
+                      </h2>
+                    </div>
+                  ) : (
+                    <h2 className="text-2xl font-bold mb-2">
+                      You need login to give feedback.
+                    </h2>
+                  )}
+                  <div className="w-1/2">
+                    <input
+                      name="rating"
+                      type="text"
+                      placeholder="Rating (0-5)"
+                      className="input input-bordered w-full "
+                      required
+                    />
+                  </div>
+                  <div className="my-5">
+                    <textarea
+                      name="comment"
+                      className="textarea textarea-bordered w-full h-24"
+                      placeholder="Comment..."
+                    ></textarea>
+                    <div className="pt-5">
+                      <input
+                        className="btn bg-green-500 hover:bg-green-600 border-none"
+                        type="submit"
+                        value="Send FeedBack"
+                      />
+                    </div>
+                  </div>
+                </form>
+                <div className="modal-action">
+                  <label htmlFor="my-modal" className="btn">
+                    Exit
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            {/* buttons */}
             <div className="flex justify-end">
-              <button className="btn btn-circle btn-sm mr-4 bg-red-500">
+              <button
+                className="btn btn-circle btn-sm mr-4 bg-red-500"
+                onClick={() => handleDelete(_id)}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -65,7 +131,12 @@ const MyReviewsRow = ({ review }) => {
                   />
                 </svg>
               </button>
-              <button className="btn btn-square btn-sm bg-green-500">⌘</button>
+              <label
+                htmlFor="my-modal"
+                className="btn btn-square btn-sm bg-green-500"
+              >
+                ⌘
+              </label>
             </div>
           </div>
         </div>

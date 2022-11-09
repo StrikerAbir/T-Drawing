@@ -3,6 +3,7 @@ import useTitle from "../../utilities/Hook/useTitle";
 import img2 from "../../assets/images/section3.jpg";
 import { AuthContext } from "../../context/AuthProvider";
 import MyReviewsRow from "./MyReviewsRow/MyReviewsRow";
+import toast from "react-hot-toast";
 
 const MyReviews = ({service_id}) => {
   useTitle("MyReviews");
@@ -10,14 +11,11 @@ const MyReviews = ({service_id}) => {
     const [reviews, setReviews] = useState([]);
     // console.log(`http://localhost:1000/reviews?email=${user.email}`);
     useEffect(() => {
-      fetch(
-        `http://localhost:1000/reviews?email=${user.email}`,
-        {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      )
+      fetch(`https://t-drawing-server.vercel.app/reviews?email=${user.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
         .then((res) => {
           if (res.status === 401 || res.status === 403) {
             return logOut();
@@ -26,6 +24,26 @@ const MyReviews = ({service_id}) => {
         })
         .then((data) => setReviews(data));
     }, [user?.email, logOut]);
+
+    const handleDelete = (id) => {
+      const proceed = window.confirm("Are you sure? You want to remove feedback.?");
+      if (proceed) {
+        fetch(`https://t-drawing-server.vercel.app/reviews/${id}`, {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              toast.success("Feedback Removed Successfully");
+              const remaining = reviews.filter((review) => review._id !== id);
+              setReviews(remaining);
+            }
+          });
+      }
+    };
   return (
     <div>
       <div className="relative">
@@ -44,7 +62,7 @@ const MyReviews = ({service_id}) => {
           </div>
           <div className='my-10'>
               {
-                  reviews.map(review=><MyReviewsRow key={review._id} review={review}></MyReviewsRow>)
+                  reviews.map(review=><MyReviewsRow key={review._id} review={review} handleDelete={handleDelete}></MyReviewsRow>)
               }
           </div>
     </div>

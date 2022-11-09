@@ -46,8 +46,8 @@ const AllReviewRow = ({ review }) => {
               </div>
             </div>
             <p className="font-bold">
-              Feedback:
-              <span className="text-green-500 font-normal">{comment}</span>
+              Feedback: "
+              <span className="text-green-500 font-normal">{comment}</span>"
             </p>
           </div>
         </div>
