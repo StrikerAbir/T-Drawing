@@ -50,8 +50,8 @@ const MyReviews = ({ service_id }) => {
   const handleUpdate = (object) => {
     const { _id } = object;
     console.log(object);
-    console.log(`http://localhost:1000/reviews/${_id}`);
-    fetch(`http://localhost:1000/reviews/${_id}`, {
+    console.log(`https://t-drawing-server.vercel.app/reviews/${_id}`);
+    fetch(`https://t-drawing-server.vercel.app/reviews/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
