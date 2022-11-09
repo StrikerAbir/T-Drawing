@@ -1,7 +1,7 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 
-const AllReviewRow = ({ review }) => {
+const MyReviewsRow = ({ review }) => {
   const {
     rating,
     comment,
@@ -11,12 +11,12 @@ const AllReviewRow = ({ review }) => {
     serviceId,
     serviceTitle,
     time,
-    } = review;
-    // time converting milisec to time
+  } = review;
+  // time converting milisec to time
   const commentTime = new Date(time);
   const current = new Date();
   current.setTime(commentTime.getTime());
-  
+
   return (
     <div className="flex justify-start mx-5 mb-5 pb-3 border-b-2">
       <div className="mr-5">
@@ -46,9 +46,27 @@ const AllReviewRow = ({ review }) => {
               </div>
             </div>
             <p className="font-bold">
-              Feedback:
-              <span className="text-green-500 font-normal">{comment}</span>
+              Feedback: <span className="text-green-500 font-normal">{comment}</span>
             </p>
+            <div className="flex justify-end">
+              <button className="btn btn-circle btn-sm mr-4 bg-red-500">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <button className="btn btn-square btn-sm bg-green-500">⌘</button>
+            </div>
           </div>
         </div>
       </div>
@@ -56,4 +74,4 @@ const AllReviewRow = ({ review }) => {
   );
 };
 
-export default AllReviewRow;
+export default MyReviewsRow;

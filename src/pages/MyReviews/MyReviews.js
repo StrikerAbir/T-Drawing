@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import useTitle from "../../utilities/Hook/useTitle";
 import img2 from "../../assets/images/section3.jpg";
 import { AuthContext } from "../../context/AuthProvider";
+import MyReviewsRow from "./MyReviewsRow/MyReviewsRow";
 
 const MyReviews = ({service_id}) => {
   useTitle("MyReviews");
@@ -42,7 +43,9 @@ const MyReviews = ({service_id}) => {
         </div>
           </div>
           <div className='my-10'>
-              {reviews.length}
+              {
+                  reviews.map(review=><MyReviewsRow key={review._id} review={review}></MyReviewsRow>)
+              }
           </div>
     </div>
   );

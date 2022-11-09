@@ -31,14 +31,6 @@ export const router = createBrowserRouter([
         loader: () => fetch("https://t-drawing-server.vercel.app/services"),
       },
       {
-        path: "/myReviews",
-        element: (
-          <PrivateRoute>
-            <MyReviews></MyReviews>
-          </PrivateRoute>
-        ),
-      },
-      {
         path: "/addService",
         element: (
           <PrivateRoute>
@@ -69,6 +61,14 @@ export const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <BLogs></BLogs>,
+      },
+      {
+        path: "/myReviews",
+        element: (
+          <PrivateRoute>
+            <MyReviews></MyReviews>
+          </PrivateRoute>
+        ),
       },
     ],
   },
