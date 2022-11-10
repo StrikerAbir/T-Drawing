@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../utilities/Hook/useTitle';
-import ServiceDetails from '../ServiceDetails/ServiceDetails';
 import AboutUs from './AboutUs/AboutUs';
 import Banner from './Banner/Banner';
 import ServicesThree from './ServicesThree/ServicesThree';

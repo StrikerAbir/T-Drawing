@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../context/AuthProvider";
-import Update from "./Update/Update";
+
 
 const MyReviewsRow = ({ review, handleDelete, handleUpdate }) => {
 
