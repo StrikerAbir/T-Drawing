@@ -11,14 +11,21 @@ const MyReviews = ({ service_id }) => {
   const { user, logOut} = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
  
-
+// pagination
+  const [count, setCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const perPage = 4;
+const pages = Math.ceil(count / perPage);
   // console.log(`http://localhost:1000/reviews?email=${user.email}`);
   useEffect(() => {
-    fetch(`https://t-drawing-server.vercel.app/reviews?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    })
+    fetch(
+      `http://localhost:1000/reviews?email=${user.email}&currentPage=${currentPage}&perPage=${perPage}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           return logOut();
@@ -26,10 +33,11 @@ const MyReviews = ({ service_id }) => {
         return res.json();
       })
       .then((data) => {
-        setReviews(data);
+        setReviews(data.reviews);
+        setCount(data.count);
         setLoad(false);
       });
-  }, [user?.email, logOut]);
+  }, [user?.email, logOut, perPage, currentPage]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm(
@@ -85,6 +93,19 @@ const MyReviews = ({ service_id }) => {
             </div>
           </div>
         )}
+        <div className="my-10 flex justify-center">
+          <div className="btn-group">
+            {[...Array(pages).keys()].map((number) => (
+              <button
+                onClick={() => setCurrentPage(number)}
+                key={number}
+                className={`btn ${currentPage === number && "bg-green-400"}`}
+              >
+                {number + 1}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
