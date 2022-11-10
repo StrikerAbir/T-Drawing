@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react";
 import AllReviewRow from "./AllReviewRow/AllReviewRow";
 
-const AllReview = ({ reviews }) => {
-  
+const AllReview = ({ service_id }) => {
+  const [reviews, setReviews] = useState([]);
+  const [load, setLoading] = useState(true);
+  useEffect(() => {
+    fetch(`https://t-drawing-server.vercel.app/reviews/all?sid=${service_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setReviews(data)
+        setLoading(false)
+      });
+  }, [reviews]);
   return (
     <div>
       <div className="mb-10 mx-5">
@@ -10,7 +19,10 @@ const AllReview = ({ reviews }) => {
         <h2 className="text-5xl font-semibold">Client's Feedback </h2>
       </div>
       <div className="overflow-x-auto w-full my-10">
-        {reviews.length > 0 ? (
+        {load ? (
+          <progress className="progress w-full"></progress>
+        ) : reviews.length > 0 ? (
+          
           reviews.map((review) => (
             <AllReviewRow key={review._id} review={review}></AllReviewRow>
           ))

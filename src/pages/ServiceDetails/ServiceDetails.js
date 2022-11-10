@@ -10,12 +10,7 @@ const ServiceDetails = () => {
   const service = useLoaderData();
   const { _id,service_id, title, rating, img, price, description } = service;
   useTitle(title);
-const [reviews, setReviews] = useState([]);
-  useEffect(() => {
-    fetch(`https://t-drawing-server.vercel.app/reviews/all?sid=${service_id}`)
-      .then((res) => res.json())
-      .then((data) => setReviews(data));
-  }, [reviews]);
+
   return (
     <div className="mt-16 mb-10">
       <section>
@@ -52,7 +47,7 @@ const [reviews, setReviews] = useState([]);
       </section>
       <section>
         <ReviewSection key={_id} service={service}></ReviewSection>
-        <AllReview key={service_id}  reviews={reviews}></AllReview>
+        <AllReview key={service_id} service_id={service_id} ></AllReview>
       </section>
     </div>
   );
