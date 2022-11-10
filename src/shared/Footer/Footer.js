@@ -11,7 +11,7 @@ const Footer = () => {
             <p>
               T-Drawing
               <br />
-              Individual drawing bussiness since 2018.
+              Individual drawing business since 2018.
             </p>
           </div>
           <div>
