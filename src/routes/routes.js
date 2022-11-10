@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
 
       {
         path: "/services",
-        element: <Services></Services>
+        element: <Services></Services>,
       },
       {
         path: "/addService",
@@ -71,9 +71,10 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path:'/update/:id',
+        path: "/update/:id",
         element: <Update></Update>,
-        loader: ({ params }) => fetch(`http://localhost:1000/review/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://t-drawing-server.vercel.app/review/${params.id}`),
       },
     ],
   },
