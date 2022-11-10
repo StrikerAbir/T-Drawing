@@ -6,6 +6,7 @@ import MyReviewsRow from "./MyReviewsRow/MyReviewsRow";
 import toast from "react-hot-toast";
 
 const MyReviews = ({ service_id }) => {
+  const [load, setLoad] = useState(true);
   useTitle("MyReviews");
   const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
@@ -22,7 +23,10 @@ const MyReviews = ({ service_id }) => {
         }
         return res.json();
       })
-      .then((data) => setReviews(data));
+      .then((data) => {
+        setReviews(data);
+        setLoad(false);
+      });
   }, [user?.email, logOut]);
 
   const handleDelete = (id) => {
@@ -81,7 +85,9 @@ const MyReviews = ({ service_id }) => {
         </div>
       </div>
       <div className="my-10">
-        {reviews.length > 0 ? (
+        {load ? (
+          <progress className="progress w-full"></progress>
+        ) : reviews.length > 0 ? (
           reviews.map((review) => (
             <MyReviewsRow
               key={review._id}
@@ -92,7 +98,6 @@ const MyReviews = ({ service_id }) => {
           ))
         ) : (
           <div>
-            <progress className="progress w-full"></progress>
             <div className="text-center my-10 text-4xl font-bold border-2 p-5">
               <h2>NO Reviews or Feedback</h2>
             </div>
