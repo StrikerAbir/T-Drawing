@@ -6,6 +6,7 @@ import BLogs from "../pages/Blogs/BLogs";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import MyReviews from "../pages/MyReviews/MyReviews";
+import Update from "../pages/MyReviews/MyReviewsRow/Update/Update";
 import NotFound from "../pages/NotFound/NotFound";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
 import Services from "../pages/Services/Services";
@@ -27,8 +28,7 @@ export const router = createBrowserRouter([
 
       {
         path: "/services",
-        element: <Services></Services>,
-        // loader: () => fetch("https://t-drawing-server.vercel.app/services"),
+        element: <Services></Services>
       },
       {
         path: "/addService",
@@ -69,6 +69,11 @@ export const router = createBrowserRouter([
             <MyReviews></MyReviews>
           </PrivateRoute>
         ),
+      },
+      {
+        path:'/update/:id',
+        element: <Update></Update>,
+        loader: ({ params }) => fetch(`http://localhost:1000/review/${params.id}`)
       },
     ],
   },

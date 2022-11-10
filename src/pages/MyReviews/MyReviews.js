@@ -8,8 +8,10 @@ import toast from "react-hot-toast";
 const MyReviews = ({ service_id }) => {
   const [load, setLoad] = useState(true);
   useTitle("MyReviews");
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut} = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+ 
+
   // console.log(`http://localhost:1000/reviews?email=${user.email}`);
   useEffect(() => {
     fetch(`https://t-drawing-server.vercel.app/reviews?email=${user.email}`, {
@@ -48,26 +50,7 @@ const MyReviews = ({ service_id }) => {
     }
   };
 
-  const handleUpdate = (object) => {
-    const { _id } = object;
-    console.log(object);
-    console.log(`https://t-drawing-server.vercel.app/reviews/${_id}`);
-    fetch(`https://t-drawing-server.vercel.app/reviews/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(object),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          toast.success("Feedback Updated Successfully");
-          window.location.reload();
-        }
-      });
-  };
+  
   return (
     <div>
       <div className="relative">
@@ -93,7 +76,6 @@ const MyReviews = ({ service_id }) => {
               key={review._id}
               review={review}
               handleDelete={handleDelete}
-              handleUpdate={handleUpdate}
             ></MyReviewsRow>
           ))
         ) : (

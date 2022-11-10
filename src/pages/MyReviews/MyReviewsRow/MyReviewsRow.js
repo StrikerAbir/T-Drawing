@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
+import Update from "./Update/Update";
 
-const MyReviewsRow = ({ review, handleDelete,handleUpdate }) => {
-  const { user } = useContext(AuthContext);
+const MyReviewsRow = ({ review, handleDelete, handleUpdate }) => {
+
   const {
     rating,
     comment,
@@ -19,20 +21,7 @@ const MyReviewsRow = ({ review, handleDelete,handleUpdate }) => {
   const current = new Date();
   current.setTime(commentTime.getTime());
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const rating = form.rating.value;
-    const comment = form.comment.value;
-    // current time in milisec
-    const now = new Date();
-      const timeMili = now.getTime();
-      const time = timeMili;
-      const object = {
-          rating,comment,time,_id
-      }
-      handleUpdate(object)
-  };
+ 
   return (
     <div className="flex justify-start mx-5 mb-5 pb-3 border-b-2">
       <div className="mr-5">
@@ -66,61 +55,7 @@ const MyReviewsRow = ({ review, handleDelete,handleUpdate }) => {
               <span className="text-green-500 font-normal">{comment}</span>"
             </p>
 
-            {/* modal body */}
-            <input type="checkbox" id="my-modal" className="modal-toggle" />
-            <div className="modal">
-              <div className="modal-box">
-                <h3 className="font-bold text-lg">Update your feedback.</h3>
-                <form onSubmit={handleSubmit} className="mt-10 w-11/12">
-                  {user?.uid ? (
-                    <div className="flex items-center m-4">
-                      <div className="avatar">
-                        <div className="w-8 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
-                          <img src={user?.photoURL} alt="" />
-                        </div>
-                      </div>
-                      <h2 className="text-2xl font-bold ml-4">
-                        {user?.displayName}
-                      </h2>
-                    </div>
-                  ) : (
-                    <h2 className="text-2xl font-bold mb-2">
-                      You need login to give feedback.
-                    </h2>
-                  )}
-                  <div className="w-1/2">
-                    <input
-                      name="rating"
-                      type="text"
-                      placeholder="Rating (0-5)"
-                      className="input input-bordered w-full "
-                      defaultValue={rating}
-                    />
-                  </div>
-                  <div className="my-5">
-                    <textarea
-                      name="comment"
-                      className="textarea textarea-bordered w-full h-24"
-                      placeholder="Comment..."
-                      defaultValue={comment}
-                    ></textarea>
-                    <div className="pt-5">
-                      <input
-                        className="btn bg-green-500 hover:bg-green-600 border-none"
-                        type="submit"
-                        value="Send FeedBack"
-                      />
-                    </div>
-                  </div>
-                </form>
-                <div className="modal-action">
-                  <label htmlFor="my-modal" className="btn">
-                    Exit
-                  </label>
-                </div>
-              </div>
-            </div>
-
+            
             {/* buttons */}
             <div className="flex justify-end">
               <button
@@ -142,12 +77,12 @@ const MyReviewsRow = ({ review, handleDelete,handleUpdate }) => {
                   />
                 </svg>
               </button>
-              <label
-                htmlFor="my-modal"
+              <Link
                 className="btn btn-square btn-sm bg-green-500"
+                to={`/update/${_id}`}
               >
                 ⌘
-              </label>
+              </Link>
             </div>
           </div>
         </div>
