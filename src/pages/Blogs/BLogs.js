@@ -12,7 +12,7 @@ const BLogs = () => {
 
       <div className="flex justify-center  bg-[#F3F3F3] rounded-lg my-10">
         <div className="my-10 w-11/12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4">
             <div
               tabIndex={0}
               className="collapse collapse-arrow border border-base-300 bg-base-100"
