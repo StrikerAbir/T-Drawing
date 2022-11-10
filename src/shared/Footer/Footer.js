@@ -3,7 +3,7 @@ import { FaRegCopyright } from 'react-icons/fa';
 import logo from '../../assets/images/t-drawing-logo.png'
 const Footer = () => {
     return (
-      <div className=" px-20 py-20 bg-black">
+      <div className=" px-20 py-20 bg-black mt-20">
         <footer className="footer text-neutral-content">
           <div>
             <img width="50" height="50" src={logo} alt="" />
