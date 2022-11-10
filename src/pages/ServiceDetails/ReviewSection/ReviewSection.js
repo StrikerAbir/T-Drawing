@@ -47,7 +47,6 @@ const ReviewSection = ({ service }) => {
                   
                   toast.success("Feedback done!");
                   form.reset();
-                  window.location.reload();
               } else {
                 toast.error("Failed to give feedback!");
               }

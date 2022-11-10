@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import AllReviewRow from "./AllReviewRow/AllReviewRow";
 
-const AllReview = ({ serviceId }) => {
-  const [reviews, setReviews] = useState([]);
+const AllReview = ({ reviews }) => {
+  // const [reviews, setReviews] = useState([]);
   // console.log(reviews);
-  useEffect(() => {
-    fetch(`https://t-drawing-server.vercel.app/reviews/all?sid=${serviceId}`)
-      .then((res) => res.json())
-      .then((data) => setReviews(data));
-  }, [serviceId]);
+  // useEffect(() => {
+  //   fetch(`https://t-drawing-server.vercel.app/reviews/all?sid=${serviceId}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setReviews(data));
+  // }, [serviceId]);
   return (
     <div>
       <div className="mb-10 mx-5">

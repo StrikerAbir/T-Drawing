@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { useLoaderData } from "react-router-dom";
@@ -10,6 +10,12 @@ const ServiceDetails = () => {
   const service = useLoaderData();
   const { _id,service_id, title, rating, img, price, description } = service;
   useTitle(title);
+const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+    fetch(`https://t-drawing-server.vercel.app/reviews/all?sid=${service_id}`)
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, [reviews]);
   return (
     <div className="mt-16 mb-10">
       <section>
@@ -46,7 +52,7 @@ const ServiceDetails = () => {
       </section>
       <section>
         <ReviewSection key={_id} service={service}></ReviewSection>
-        <AllReview key={service_id} serviceId={service_id}></AllReview>
+        <AllReview key={service_id}  reviews={reviews}></AllReview>
       </section>
     </div>
   );
