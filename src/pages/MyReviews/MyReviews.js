@@ -5,21 +5,21 @@ import { AuthContext } from "../../context/AuthProvider";
 import MyReviewsRow from "./MyReviewsRow/MyReviewsRow";
 import toast from "react-hot-toast";
 
-const MyReviews = ({ service_id }) => {
+const MyReviews = () => {
   const [load, setLoad] = useState(true);
   useTitle("MyReviews");
-  const { user, logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
- 
-// pagination
+
+  // pagination
   const [count, setCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const perPage = 4;
-const pages = Math.ceil(count / perPage);
+  const pages = Math.ceil(count / perPage);
   // console.log(`http://localhost:1000/reviews?email=${user.email}`);
   useEffect(() => {
     fetch(
-      `http://localhost:1000/reviews?email=${user.email}&currentPage=${currentPage}&perPage=${perPage}`,
+      `https://t-drawing-server.vercel.app/reviews?email=${user.email}&currentPage=${currentPage}&perPage=${perPage}`,
       {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -58,7 +58,6 @@ const pages = Math.ceil(count / perPage);
     }
   };
 
-  
   return (
     <div>
       <div className="relative">
@@ -93,6 +92,8 @@ const pages = Math.ceil(count / perPage);
             </div>
           </div>
         )}
+
+        {/* pagination */}
         <div className="my-10 flex justify-center">
           <div className="btn-group">
             {[...Array(pages).keys()].map((number) => (
