@@ -21,7 +21,7 @@ const AllReview = ({ service_id }) => {
         setCount(data.count);
         setLoading(false);
       });
-  }, [reviews, perPage, currentPage]);
+  }, [reviews, currentPage]);
   return (
     <div>
       <div className="mb-10 mx-5">

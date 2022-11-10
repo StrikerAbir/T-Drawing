@@ -37,7 +37,7 @@ const MyReviews = () => {
         setCount(data.count);
         setLoad(false);
       });
-  }, [user?.email, logOut, perPage, currentPage]);
+  }, [user?.email, logOut, currentPage]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm(
