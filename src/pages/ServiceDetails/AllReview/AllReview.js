@@ -13,7 +13,7 @@ const AllReview = ({ service_id }) => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:1000/reviews/all?sid=${service_id}&currentPage=${currentPage}&perPage=${perPage}`
+      `https://t-drawing-server.vercel.app/reviews/all?sid=${service_id}&currentPage=${currentPage}&perPage=${perPage}`
     )
       .then((res) => res.json())
       .then((data) => {
