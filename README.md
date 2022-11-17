@@ -35,7 +35,7 @@ We created own server to provide own api. Which needed to load data for our site
 ### `Live api Server Link :`
 *** 
 
-* For all courses : [https://t-drawing-server.vercel.app/s](https://t-drawing-server.vercel.app/)
+* For all courses : [https://t-drawing-server.vercel.app/](https://t-drawing-server.vercel.app/)
 
 *** 
 ### `npm packages installed :`
