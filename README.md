@@ -12,7 +12,7 @@
 
 This is a Full stack Project with both Frontend (REACT) and Backend (NODEJS) work. This project's authentication process relay on firebase and backend work relay on nodejs and mongodb.\
 Have two type authentication system :
-* Email and Password login with email verification
+* Email and Password login and google login.
 * Google Login
 Backend CRUD operations are done in this project.
 
@@ -35,7 +35,7 @@ We created own server to provide own api. Which needed to load data for our site
 ### `Live api Server Link :`
 *** 
 
-* For all courses : [https://t-drawing-server.vercel.app/s](https://t-drawing-server.vercel.app/)
+* For all courses : [https://t-drawing-server.vercel.app/](https://t-drawing-server.vercel.app/)
 
 *** 
 ### `npm packages installed :`
