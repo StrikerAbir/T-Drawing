@@ -18,7 +18,7 @@ const ServicesThree = ({ services}) => {
           </div>
 
           {services ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center lg:grid-cols-3 gap-6 mt-10 mx-2">
+            <div  className="grid grid-cols-1 md:grid-cols-2 justify-items-center lg:grid-cols-3 gap-6 mt-10 mx-2">
               {services.map((service) => (
                 <ServiceCard key={service._id} service={service}></ServiceCard>
               ))}

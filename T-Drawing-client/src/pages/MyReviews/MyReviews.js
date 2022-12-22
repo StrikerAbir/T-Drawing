@@ -33,6 +33,7 @@ const MyReviews = () => {
         return res.json();
       })
       .then((data) => {
+        console.log(data);
         setReviews(data.reviews);
         setCount(data.count);
         setLoad(false);

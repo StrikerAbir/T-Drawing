@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 const ServiceCard = ({ service }) => {
   const { _id, img, price, title, rating, description } = service;
   return (
-    <div className="card card-compact  bg-base-100 rounded-none border-b-2">
+    <div
+      data-aos="zoom-in"
+      className="card card-compact  bg-base-100 rounded-none border-b-2"
+    >
       <PhotoProvider>
         <PhotoView src={img}>
           <img src={img} alt="" />
@@ -22,7 +25,10 @@ const ServiceCard = ({ service }) => {
           </div>
         </div>
         <div className="mb-2">
-          <p>{description.length > 100 ? description.slice(0, 100) : description}...</p>
+          <p>
+            {description.length > 100 ? description.slice(0, 100) : description}
+            ...
+          </p>
         </div>
         <div className="card-actions items-center">
           <p className=" font-semibold text-xl">
